@@ -13,20 +13,28 @@
 <body>
     <div id="app" class="background">
 
+        <div class="pop-up">
+            <h1>Qual'è il tuo nome?</h1>
+            <div class="row">
+                <input class="input-text" type="text" v-model="username">
+                <button class="btn" @click="save">Salva</button>
+            </div>
+        </div>
+
         <div class="container">
+
+
             <div>
-                <h1>Good Morning, Christian!</h1>
+                <h1>Good Morning, {{ username }}!</h1>
                 <h5>Data di oggi</h5>
             </div>
             <div class="tasks">
                 <div class="row">
-                    <input class="input-text" type="text" id="txt" v-model="newTask.taskText" placeholder="Aggiungi una attività">
-                    <button @click="AddTask"  class="btn">AGGIUNGI</button>
+                    <input class="input-text" type="text" id="txt" v-model="newTask.taskText"
+                        placeholder="Aggiungi una attività">
+                    <button @click="AddTask" class="btn">AGGIUNGI</button>
                 </div>
                 <ul>
-                    <li class="item">
-                        <input class="checkbox" type="checkbox"> Sono una attività
-                    </li>
 
                     <li v-for="curTask in tasks" class="item">
                         <input class="checkbox" type="checkbox"> {{ curTask.taskText }}
